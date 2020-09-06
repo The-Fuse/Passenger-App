@@ -173,6 +173,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
         }
     }
+    override fun onResume() {
+        getLocation()
+        super.onResume()
+    }
     private fun checkPermission(permissionArray: Array<String>): Boolean {
         var allSuccess = true
         for (i in permissionArray.indices) {
