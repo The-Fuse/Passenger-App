@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#ffffff")))
         val user = Firebase.auth.currentUser
         if (user != null){
-            Snackbar.make(button2, "Logged in Successfully !!", Snackbar.LENGTH_SHORT).show()
+           //ljdfl
         }else {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
@@ -34,5 +35,22 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.setTitle("Hello $username")
                 }
             }
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.home -> {
+                    // Respond to navigation item 1 click
+                    true
+                }
+                R.id.rewards -> {
+                    // Respond to navigation item 2 click
+                    true
+                }
+                R.id.profile -> {
+                    true
+
+                }
+                else -> false
+            }
+        }
     }
 }
